@@ -1,0 +1,29 @@
+<p>Please open the console.</p>
+<p>The logic used here is using regex:
+1. stringify the object, so that all the keys will be coming under double quotes.
+2. Find the text between double quotes and which are preceeded by {
+3. Do replacing of special characters like { , whitespaces and properly seperate keys using comma.
+
+<pre>
+<code>
+	var obj = {  1: "Apple", be: { c: { d: 10 } }} ;
+	var x= JSON.stringify(obj);
+	//{"1":"Apple","be":{"c":{"d":10}}}
+	var y = (x.match(/({|,)"[A-Za-z0-9]*"/g)).toString();
+	<!-- console.log(x.match(/({|,)"[A-Za-z0-9]*"/g)); -->
+	<!-- console.log(x); -->
+	<!-- console.log(y); -->
+	console.log(y.replace(/{/g,'').replace(/"/g,'').replace(/[, ]+/g, " ").trim().replace().replace(/[ ,]+/g, ","));
+</code>
+<pre>
+</p>
+<script>
+var obj = {  1: "Apple", be: { c: { d: 10 } }} ;
+var x= JSON.stringify(obj);
+//{"1":"Apple","be":{"c":{"d":10}}}
+var y = (x.match(/({|,)"[A-Za-z0-9]*"/g)).toString();
+<!-- console.log(x.match(/({|,)"[A-Za-z0-9]*"/g)); -->
+<!-- console.log(x); -->
+<!-- console.log(y); -->
+console.log(y.replace(/{/g,'').replace(/"/g,'').replace(/[, ]+/g, " ").trim().replace().replace(/[ ,]+/g, ","));
+</script>
