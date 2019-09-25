@@ -12,9 +12,7 @@ Questions and Answers of Coding Problem Statement
           Eg: input: {  a: 5, b: { c: { d: 10 } }}   output: [a, b, c, d]
 
 4.       Write a function to reverse every word of a string.
-
-·         Using split and reverse
-
-·         Without using split and reverse and in O(1) space (since strings are immutable, assume that the input is a character array).
+          Using split and reverse
+          Without using split and reverse and in O(1) space (since strings are immutable, assume that the input is a character array).
 
 5.       Write a function to remove duplicate strings from an array of strings.
