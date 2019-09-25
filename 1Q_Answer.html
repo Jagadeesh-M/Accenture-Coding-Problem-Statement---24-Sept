@@ -1,0 +1,136 @@
+<table border="1">
+<tr>
+	<th>this</th>
+	<th>let</th>
+</tr>
+<tr>
+	<td>
+		'this' references the object that is executing the current function.
+		In the below example1,
+		we have created an object called person inside it we have created a function and used this in it.
+		'this' keyword used in that function refers the object person.
+		prints the output as
+		<pre><code>
+		{name: "DanBrown", work: ƒ}
+		</code></pre>
+		In the example2
+		if 'this' keyword is used inside a normal/global function, then it will result the window object.
+		<pre><code>
+		Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}
+		</code></pre>
+		<pre><code>
+		work2 {workType: "Art Work"}
+		</code></pre>
+		if the same function object is created using the new keywork, then 'this' will point to the functions object.
+	</td>
+	<td>
+		'let' is a key word in ES6/ES2015 which is used to declare the variables having block level scope.
+		and the variables once declared cannot be once again declared in the same scope level.
+		In the below example,
+		let is used once outside the function and once inside the function.
+		In this case, both the name variables become different because of its scope.
+		that is why, this program prints output as
+		<pre><code>
+		Mike
+		John
+		</code></pre>
+		if the let name inside the function is removed then the name which is declared and defined outside the function becomes 
+		available to the function it self.
+		the the output will be
+		<pre><code>
+		John
+		John
+		</code></pre>
+	</td>
+</tr>
+<tr>
+	<td>
+		<i>Example1:</i>
+		<pre><code>
+		let person = {
+			name: 'DanBrown',
+			work(): {
+				console.log(this);
+			}
+		};
+		person.work();
+		</code></pre>
+		<i>Example2:</i>
+		<pre><code>
+		work1() {
+			console.log(this);
+		}
+		work1();
+
+		function work2(typeOfWork) {
+			this.workType = typeOfWork;
+			console.log(this);
+		}
+		let objWork2 = new work2("Art Work");
+		</code></pre>
+	</td>
+	
+	<td>
+		<i>Example:</i>
+		<pre>
+		<code>
+			let name = "John";
+			function nameChange() {
+				let name = "Mike";
+				console.log(name);
+			}
+			nameChange();
+			console.log(name);
+		</code>
+		</pre>
+	</td>
+</tr>
+<tr>
+	<td>
+		'this' should be used when we need to refer to the properties/fields of the object in which function/method is defined.
+	</td>
+	<td>
+		'let' should be used when we need to declare any variable that should have block level scope.
+	</td>
+</tr>
+<tr>
+<td colspan=2>
+	<i>please open the browsers developers tool console to see the examples.</i>
+</td>
+</tr>
+</table>
+
+<script>
+	const person = {
+		name: 'DanBrown',
+		work() {
+			console.log(this);
+		}
+	};
+	person.work();
+</script>
+
+<script>
+	//++++++Example1
+	let name = "John";
+	function nameChange() {
+		let name = "Mike";
+		console.log(name);
+	}
+	nameChange();
+	console.log(name);
+	//------Example1
+	
+	//++++++Example2
+	function work1() {
+	console.log(this);
+	}
+	work1();
+	
+	function work2(typeOfWork) {
+		this.workType = typeOfWork;
+		console.log(this);
+	}
+	let objWork2 = new work2("Art Work");
+	//++++++Example2
+</script>
